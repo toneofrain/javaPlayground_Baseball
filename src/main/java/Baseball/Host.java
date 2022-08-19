@@ -43,18 +43,11 @@ public class Host {
         return 0;
     }
 
-    private void removeNothing(int index) {
-        if (!numbers.contains(balls[index])) {
-            balls[index] = 0;
-        }
-    }
-
     public int countBalls() {
         int ballCount = 0;
 
         for (int i = 0; i < count; i++) {
             ballCount += plusBall(balls[i]);
-            removeNothing(i);
         }
 
         return ballCount;
