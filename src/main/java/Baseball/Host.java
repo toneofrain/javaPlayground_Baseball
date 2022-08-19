@@ -43,11 +43,18 @@ public class Host {
         return 0;
     }
 
+    private void removeNothing(int index) {
+        if (!numbers.contains(balls[index])) {
+            balls[index] = 0;
+        }
+    }
+
     public int countBalls() {
         int ballCount = 0;
 
         for (int i = 0; i < count; i++) {
             ballCount += plusBallcount(balls[i]);
+            removeNothing(i);
         }
 
         return ballCount;
@@ -57,6 +64,13 @@ public class Host {
 
 
     public static void main(String[] args) {
-
+        Host host = new Host();
+        for (Integer i : host.numbers) {
+            System.out.print(i);
+        }
+        System.out.println();
+        host.storeBalls("123");
+        System.out.println(host.countBalls());
+        System.out.print(Arrays.toString(host.balls));
     }
 }
