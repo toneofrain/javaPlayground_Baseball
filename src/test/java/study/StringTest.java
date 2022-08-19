@@ -13,7 +13,7 @@ public class StringTest {
     }
     @Test
     void split1() {
-        String[] actual = "1,2".split(",");
+        String[] actual = "2 + 3 * 4 / 1".split(" ");
         assertThat(actual).contains("1", "2");
     }
 
