@@ -35,7 +35,7 @@ public class Host {
         balls = store;
     }
 
-    private int plusBallcount(int number) {
+    private int plusBall(int number) {
         if (numbers.contains(number)) {
             return 1;
         }
@@ -53,24 +53,28 @@ public class Host {
         int ballCount = 0;
 
         for (int i = 0; i < count; i++) {
-            ballCount += plusBallcount(balls[i]);
+            ballCount += plusBall(balls[i]);
             removeNothing(i);
         }
 
         return ballCount;
     }
 
-
-
-
-    public static void main(String[] args) {
-        Host host = new Host();
-        for (Integer i : host.numbers) {
-            System.out.print(i);
+    public int plusStrike(int index) {
+        if (balls[index] == numbers.get(index)) {
+            return 1;
         }
-        System.out.println();
-        host.storeBalls("123");
-        System.out.println(host.countBalls());
-        System.out.print(Arrays.toString(host.balls));
+
+        return 0;
+    }
+
+    public int countStrike() {
+        int strikeCount = 0;
+
+        for (int i = 0; i < count; i++) {
+            strikeCount += plusStrike(i);
+        }
+
+        return strikeCount;
     }
 }
