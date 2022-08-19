@@ -10,9 +10,11 @@ public class Host {
     private final static int min = 1;
     private final static int max = 9;
     private final int[] numbers;
+    private int[] balls;
 
     private Host() {
         this.numbers = generateNumbers();
+        this.balls = new int[count];
     }
     private static int generate1to9() {
         return random.nextInt(max - min + 1) + min;
@@ -28,10 +30,17 @@ public class Host {
                 .toArray();
     }
 
-    public static void main(String[] args) {
-        int[] ints = generateNumbers();
-        for (int i = 0; i < ints.length; i++) {
-            System.out.println(ints[i]);
+    public int[] storeBalls(String input) {
+        int[] store = new int[count];
+
+        for (int i = 0; i < count; i++) {
+            store[i] = input.charAt(i) - '0';
         }
+
+        return store;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
