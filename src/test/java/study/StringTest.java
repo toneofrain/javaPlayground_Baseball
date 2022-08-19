@@ -15,4 +15,10 @@ public class StringTest {
         String[] actual = "1,2".split(",");
         assertThat(actual).contains("1", "2");
     }
+
+    @Test
+    void split2() {
+        String[] actual = "1".split(",");
+        assertThat(actual).containsExactly("1");
+    }
 }
